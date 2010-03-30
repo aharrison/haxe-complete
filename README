@@ -1,0 +1,33 @@
+haxe-complete : Intelligent Completion for haXe
+
+Author: Andrew Harrison
+
+Extended from original by Marko Kocic
+(http://haxe.org/forum/thread/159)
+
+Per stack-overflow legal, this is contributed under cc-wiki license
+with attribution.  available at
+http://creativecommons.org/licenses/by-sa/2.5/
+
+This emacs file uses company-mode to automatically complete based on
+the "haxe --display" compiler call.
+
+Note that this method has several downsides:
+
+   * It must save the buffer every time it tries to do a completion.
+
+   * It does not support completion-as-you go. If you type foo.bar
+     looking for foo.barbaz, you will lose the completion window.
+
+   * The script must override the prefix minimum length for
+     company-mode, which might make other company-mode scripts more
+     computationally intensive. This could probably be fixed by
+     modifying it locally in the minor mode, but I have reached the
+     limit of my emacs-fu.
+
+As a special added bonus, this includes fly-make for haXe under
+similar conditions. Unfortunately, it will "crash" fly-make mode if
+there is an error on a file other than the file your are browsing.
+Also, it includes a function redefinition for
+flymake-start-syntax-check-process to get around a bug (I think) in
+flymake where it fails to take into account passed-in directories.
