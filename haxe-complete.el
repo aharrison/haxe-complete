@@ -133,3 +133,8 @@
 	 (flymake-log 0 err-str)
 	 (funcall cleanup-f)
 	 (flymake-report-fatal-status "PROCERR" err-str))))))
+
+(defcustom company-minimum-prefix-length 0
+  "*The minimum prefix length for automatic completion."
+  :group 'company
+  :type '(integer :tag "prefix length"))
